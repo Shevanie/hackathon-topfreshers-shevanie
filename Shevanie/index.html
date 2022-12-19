@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="css/index.css" type="text/css">
+    <script type="text/javascript" src="validation.js"></script>
+    <script type="text/javascript" src="/js/index.js"></script>
+</head>
+
+
+<body>
+    <div class="wrapper">
+        <div class="title-text">
+            <div class="title login">
+                Login Form
+            </div>
+            <div class="title Register" style="padding-left: 27px;">
+                Registration Form
+            </div>
+        </div>
+        <div class="form-container">
+            <div class="slide-controls">
+                <input type="radio" name="slide" id="login" checked>
+                <input type="radio" name="slide" id="register">
+                <label for="login" class="slide login">Login</label>
+                <label for="Register" class="slide signup">Register </label>
+                <div class="slider-tab"></div>
+            </div>
+            <div class="form-inner">
+
+
+
+
+                <form action="#" style="
+    height: 300px;
+" class="login" action="/dashboard.html
+                ">
+                    <table>
+                        <tr style="nostyle">
+                            <div class="field">
+                                <input type="text" id="username" placeholder="Email / Username" required>
+                            </div>
+                        </tr>
+                        <tr style="nostyle">
+                            <div class="field">
+                                <input type="pass" id="pword" placeholder="Password" required>
+                            </div>
+                        </tr>
+                    </table>
+                    <div class="pass-link">
+                        <a href="#" onclick="forpass()">Forgot password?</a>
+                    </div>
+                    <div class="field btn">
+                        <div class="btn-layer"></div>
+                        <input type="submit" value="Login" onclick="logss()">
+                    </div>
+                    <div class="Register-link">
+                        Not registered? <a href="#" onclick="reg()">Register now</a>
+                    </div>
+                </form>
+                <h2 id="msg1" style="position:absolute; color: red;">
+                </h2>
+
+
+
+
+
+
+                <form action="#" class="Register">
+                    <div class="field">
+                        <input id="name" type="text" placeholder="Full name" required>
+                    </div>
+                    <table>
+
+                        <tr style="nostyle">
+                            <div class="field">
+                                <input id="mail" type="text" placeholder="Email / Username" required>
+
+                            </div>
+                        </tr>
+                        <tr style="nostyle">
+                            <div class="field">
+
+                                <input type="password" id="Password" placeholder="Password" required
+                                    onkeyup='passConfirm();' />
+
+                            </div>
+                        </tr>
+                    </table>
+                    <div class="field">
+                        <input type="password" placeholder="Confirm password" id="ConfirmPassword" required
+                            onkeyup='passConfirm();' />
+                    </div>
+                    <span id="Message"></span>
+                    <div class="field">
+                        <input id="colour" type="text" placeholder="What is your Favorite color?" required>
+                    </div>
+                    <div class="field">
+                        <input id="num" type="number" placeholder="Phone number" required>
+                    </div>
+
+                    <div class="field btn">
+                        <div class="btn-layer"></div>
+                        <input type="submit" value="Register" onclick="register()">
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+    </div><br><br><br><br><br><br>
+    <br><br>
+    <br>
+    <br>
+    <h2 id="msg" style="position:absolute; color: red
+    ">
+    </h2>
+
+</body>
+<script>
+
+    noofrows = 0
+    prods = []
+    function register() {
+        table = document.getElementById("mytab");
+        id = document.getElementById("mail").value
+        pn = document.getElementById("Password").value
+
+        for (i = 0; i < prods.length; i++) {
+            if (prods[i][0] == id) {
+
+                loginForm.style.marginLeft = "0%";
+                loginText.style.marginLeft = "0%";
+
+                document.getElementById("msg").style.color = "Red";
+
+                document.getElementById("msg").innerHTML = "*Account already exists"
+            }
+        }
+        if (i == prods.length) {
+            prods.push([id, pn,]);
+            row = table.insertRow(noofrows)
+            col1 = row.insertCell(0)
+            col2 = row.insertCell(1)
+
+
+            col1.innerHTML = id
+            col2.innerHTML = pn
+
+        }
+
+    }
+    norows = 0
+    adds = []
+    function logss() {
+        table = document.getElementById("mytab");
+        id1 = document.getElementById("username").value
+        pn1 = document.getElementById("pword").value
+
+        for (i = 0; i < adds.length; i++) {
+            if (adds[i][0] == prods[i][0]) {
+                window.location.href = "/dashboard.html";
+            }
+            else {
+                document.getElementById("msg1").style.color = "Red";
+
+                document.getElementById("msg1").innerHTML = "*Account does not exists"
+            }
+        }
+        if (i == prods.length) {
+            prods.push([id1, pn1,]);
+            row = table.insertRow(norows)
+            col1 = row.insertCell(0)
+            col2 = row.insertCell(1)
+
+
+            col1.innerHTML = id1
+            col2.innerHTML = pn1
+
+        }
+    }
+    function logss() {
+        window.location.href = "dashboard.html"
+    }
+    var passConfirm = function () {
+        if (document.getElementById("Password").value ==
+            document.getElementById("ConfirmPassword").value) {
+            document.getElementById("Message").style.color = "Green";
+            document.getElementById("Message").innerHTML = "Passwords match!"
+        } else {
+            document.getElementById("Message").style.color = "Red";
+            document.getElementById("Message").innerHTML = "Passwords do NOT match!"
+        }
+    }
+    const loginText = document.querySelector(".title-text .login");
+    const loginForm = document.querySelector("form.login");
+    const loginBtn = document.querySelector("label.login");
+    const signupBtn = document.querySelector("label.signup");
+    const signupLink = document.querySelector("form .signup-link a");
+    signupBtn.onclick = (() => {
+        loginForm.style.marginLeft = "-50%";
+        loginText.style.marginLeft = "-50%";
+    });
+    loginBtn.onclick = (() => {
+        loginForm.style.marginLeft = "0%";
+        loginText.style.marginLeft = "0%";
+    });
+    signupLink.onclick = (() => {
+        signupBtn.click();
+        return false;
+    });
+    function reg() {
+        loginForm.style.marginLeft = "-50%";
+        loginText.style.marginLeft = "-50%";
+    }
+
+
+    function forpass() {
+        window.location.href = "/forpassword.html";
+    }
+
+
+    i
+
+
+
+
+</script>
+
+</html>

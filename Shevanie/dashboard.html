@@ -1,0 +1,200 @@
+<html lang="en">
+
+<head>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        s .top {
+            height: 10%;
+
+        }
+
+        .tophead h3 {
+            background: linear-gradient(110.1deg, rgb(34, 126, 34) 2.9%, rgb(168, 251, 60) 90.3%);
+
+            margin-top: 0px;
+
+        }
+
+        .outerblock {
+            text-align: center;
+
+            color: white;
+
+            width: 100%;
+
+            height: 80%;
+
+        }
+
+        .div_block {
+
+            width: 23%;
+            margin-top: 2%;
+            float: left;
+            height: 450px;
+
+            margin-left: 10px;
+
+        }
+
+        .div_block img {
+            padding-top: 5px;
+            height: 40%;
+            width: 90%;
+        }
+
+        .div_block h3 {
+            color: black;
+        }
+
+        .div_block input {
+            width: 20%;
+            margin-left: 45%;
+            float: right;
+            background-color: rgba(0, 0, 255, 0.325);
+        }
+
+        .div_block label {
+            color: black;
+            float: left;
+        }
+
+        /* .last {
+            padding: 0 30% 0 10%;
+            width: 100%;
+        } */
+        .lasts {
+            width: 500px;
+            padding: 0 0 0 60%;
+        }
+        .last{
+            align-items: center;
+            padding-left: 25%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="full">
+
+
+        <section class="content" style="height: 500px;">
+            <div class="top">
+                <div class="tophead">
+                    <h3>WELCOME
+
+                    </h3>
+                </div>
+                <h3>PLEASE PLACE THE ORDER</h3>
+            </div>
+
+            <div class="outerblock">
+                <div class="div_block">
+
+                    <img src="images/veg1.png" alt="block 1 image">
+                    <h3 style="width: 150px;"><b>CUCUMBER</b></h3>
+                    <h3 style="width: 320px;">PRICE <span style="width: 50%;margin-left: 190px;">40</span></h3>
+
+                    <label for="qty">
+                        <h3 style="width: 300px">QTY
+                    </label>
+                    <input type="number" name="qty" id="m1"></h3>
+
+
+
+
+
+                </div>
+                <div class="div_block">
+
+                    <img src="images/veg2.png" alt="block 1 image">
+
+                    <h3 style="width: 150px;"><b>BRINJAL</b></h3>
+                    <h3 style="width: 320px;">PRICE <span style="width: 50%;margin-left: 190px;">55</span></h3>
+
+                    <label for="qty">
+                        <h3 style="width: 300px">QTY
+                    </label>
+                    <input type="number" name="qty" id="m2"></h3>
+
+                </div>
+                <div class="div_block">
+
+                    <img src="images/veg3.png" alt="block 1 image">
+
+                    <h3 style="width: 150px;"><b>ONION</b></h3>
+                    <h3 style="width: 320px;">PRICE <span style="width: 50%;margin-left: 190px;">45</span></h3>
+
+                    <label for="qty">
+                        <h3 style="width: 300px">QTY
+                    </label>
+                    <input type="number" name="qty" id="m3"></h3>
+                </div>
+                <div class="div_block">
+
+                    <img src="images/veg4.png" alt="block 1 image">
+                    <h3 style="width: 150px;"><b>GARLIC</b></h3>
+                    <h3 style="width: 320px;">PRICE <span style="width: 50%;margin-left: 190px;">75</span></h3>
+
+                    <label for="qty">
+                        <h3 style="width: 300px">QTY
+                    </label>
+                    <input type="number" name="qty" id="m4"></h3>
+
+                </div>
+            </div>
+
+
+        </section>
+        <section class="lasts">
+            <div class="last">
+
+                <input type="button" value="Add to cart" onclick="addrecord()" style="float: left;">
+
+
+                <input type="button" value="Checkout" onclick="calculate()" style="float: left; margin-left: 10%;">
+
+
+            </div>
+        </section>
+    </div>
+    <div style="width: 100%; float: left; height: 100px;">
+        <h2 id="total"> </h2>
+        <h2 id="total1"> </h2>
+    </div>
+</body>
+<script>
+
+
+    noOfRows = 0;
+    sum = 0;
+    function calculate() {
+        var m1 = document.getElementById("m1").value
+        var m2 = document.getElementById("m2").value
+        var m3 = document.getElementById("m3").value
+        var m4 = document.getElementById("m4").value
+        sum = parseInt(m1 * 40) + parseInt(m2 * 55) + parseInt(m3 * 45) + parseInt(m4 * 75)
+        text = document.getElementById("total1").innerText;
+        text = "Total Rs." + sum
+        document.getElementById("total1").innerHTML = text
+
+    }
+    noOfRows = 0;
+    sum = 0;
+    function addrecord() {
+        var m1 = document.getElementById("m1").value
+        var m2 = document.getElementById("m2").value
+        var m3 = document.getElementById("m3").value
+        var m4 = document.getElementById("m4").value
+        sum = parseInt(m1) + parseInt(m2) + parseInt(m3) + parseInt(m4)
+        text = document.getElementById("total").innerText;
+        text = "Items in cart=" + sum
+        document.getElementById("total").innerHTML = text
+
+    }
+</script>
+
+</html>
